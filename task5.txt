@@ -1,0 +1,63 @@
+1)https://docs.oracle.com/javase/tutorial/java/IandI/subclasses.html
+Приклад ex001_inheritance
+
+Определение: Класс, производный от другого класса, называется подклассом (также производным классом, расширенным классом или дочерним классом). Класс, от которого произошел подкласс, называется суперклассом (также базовым классом или родительским классом).
+
+Идея наследования проста, но эффективна: если вы хотите создать новый класс и уже существует класс, включающий часть нужного вам кода, вы можете получить новый класс из существующего класса. При этом вы можете повторно использовать поля и методы существующего класса без необходимости писать (и отлаживать!) их самостоятельно.
+
+Подкласс наследует все члены (поля, методы и вложенные классы) от своего суперкласса. Конструкторы не являются членами, поэтому они не наследуются подклассами, но конструктор суперкласса может быть вызван из подкласса.
+
+2)https://docs.oracle.com/javase/tutorial/java/IandI/subclasses.html
+Приклад ex002_inheritance
+
+Подкласс не наследует закрытые члены своего родительского класса. Однако если суперкласс имеет общедоступные или защищенные методы доступа к своим частным полям, они также могут использоваться подклассом.
+
+Вложенный класс имеет доступ ко всем закрытым членам включающего его класса — как к полям, так и к методам. Таким образом, открытый или защищенный вложенный класс, унаследованный подклассом, имеет косвенный доступ ко всем закрытым членам суперкласса.
+
+3) https://docs.oracle.com/javase/tutorial/java/IandI/subclasses.html
+Приклад ex003_constructors, ex004_constructors
+
+Вы можете написать конструктор подкласса, который вызывает конструктор суперкласса либо неявно, либо с помощью ключевого слова super.
+В следующих разделах этого урока эти темы будут более подробно рассмотрены.
+
+4)https://docs.oracle.com/javase/tutorial/java/IandI/subclasses.html
+Приклад ex005_inheritance ex006_inheritance
+We have seen that an object is of the data type of the class from which it was instantiated. For example, if we write
+
+public MountainBike myBike = new MountainBike();
+then myBike is of type MountainBike.
+
+MountainBike is descended from Bicycle and Object. Therefore, a MountainBike is a Bicycle and is also an Object, and it can be used wherever Bicycle or Object objects are called for.
+
+The reverse is not necessarily true: a Bicycle may be a MountainBike, but it isn't necessarily. Similarly, an Object may be a Bicycle or a MountainBike, but it isn't necessarily.
+
+Casting shows the use of an object of one type in place of another type, among the objects permitted by inheritance and implementations. For example, if we write
+
+Object obj = new MountainBike();
+then obj is both an Object and a MountainBike (until such time as obj is assigned another object that is not a MountainBike). This is called implicit casting.
+
+If, on the other hand, we write
+
+MountainBike myBike = obj;
+we would get a compile-time error because obj is not known to the compiler to be a MountainBike. However, we can tell the compiler that we promise to assign a MountainBike to obj by explicit casting:
+
+MountainBike myBike = (MountainBike)obj;
+This cast inserts a runtime check that obj is assigned a MountainBike so that the compiler can safely assume that obj is a MountainBike. If obj is not a MountainBike at runtime, an exception will be thrown.
+
+5)https://docs.oracle.com/javase/tutorial/java/IandI/override.html
+
+Приклад ex007_override
+
+An instance method in a subclass with the same signature (name, plus the number and the type of its parameters) and return type as an instance method in the superclass overrides the superclass's method.
+
+The ability of a subclass to override a method allows a class to inherit from a superclass whose behavior is "close enough" and then to modify behavior as needed. The overriding method has the same name, number and type of parameters, and return type as the method that it overrides. An overriding method can also return a subtype of the type returned by the overridden method. This subtype is called a covariant return type.
+
+When overriding a method, you might want to use the @Override annotation that instructs the compiler that you intend to override a method in the superclass. If, for some reason, the compiler detects that the method does not exist in one of the superclasses, then it will generate an error. For more information on @Override, see Annotations.
+
+6)https://docs.oracle.com/javase/tutorial/java/IandI/usinginterface.html
+Приклад ex008_interface_inheritance, ex009_interface_inheritance
+
+7)https://docs.oracle.com/javase/tutorial/java/IandI/super.html
+Приклад ex010_super_method
+8)https://docs.oracle.com/javase/tutorial/java/IandI/final.html
+Приклад ex011_final_class, ex012_final_methods
